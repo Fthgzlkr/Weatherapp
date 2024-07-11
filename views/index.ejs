@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weather App</title>
+  <link rel="stylesheet" href="/style.css"> 
+</head>
+<body>
+  <div class="container">
+    <div class="card">
+      <div class="search">
+        <form action="/" method="get">
+          <input type="text" name="city" placeholder="Enter a city name" value="<%= city %>">
+          <button type="submit"><img src="/images/search.png"></button>
+        </form>
+      </div>
+      <% if (weather) { %>
+      <div class="weather">
+        <img src="/images/rain.png" class="weather-icon">
+        <h1 class="temp"><%= weather.main.temp %>°C</h1>
+        <h2 class="city"><%= weather.name %></h2>
+        <details>
+          <summary>Details</summary>
+          <div class="details-content">
+            <p class="humidity">
+              <img src="/images/humidity.png" alt="Humidity" class="icon">
+              <span class="info">Humidity: <%= weather.main.humidity %>%</span>
+            </p>
+            <p class="wind">
+              <img src="/images/wind.png" alt="Wind Speed" class="icon">
+              <span class="info">Wind Speed: <%= weather.wind.speed %> km/h</span>
+            </p>
+          </div>
+        </details>
+      </div>
+      <% } %>
+    </div>
+
+    <!-- İkinci kart ve üçüncü kart bölümleri buraya eklenecek -->
+
+    <div class="card-2">
+        <div class="col">
+          <div class="row row1">21&deg;</div>
+          <div class="row row2"><img class="img-fluid" src="https://img.icons8.com/ios/100/000000/sun.png"/></div>
+          <div class="row row3">12:00</div>
+          <div class="row row4">PM</div>
+        </div>
+        <div class="col">
+          <div class="row row1">20&deg;</div>
+          <div class="row row2"><img class="img-fluid" src="https://img.icons8.com/ios/100/000000/rain.png"/></div>
+          <div class="row row3">1:00</div>
+          <div class="row row4">PM</div>
+        </div>
+        <div class="col">
+          <div class="row row1">20&deg;</div>
+          <div class="row row2"><img class="img-fluid" src="https://img.icons8.com/windows/100/000000/cloud.png"/></div>
+          <div class="row row3">2:00</div>
+          <div class="row row4">PM</div>
+        </div>
+        <div class="col">
+          <div class="row row1">19&deg;</div>
+          <div class="row row2"><img class="img-fluid" src="https://img.icons8.com/windows/100/000000/cloud.png"/></div>
+          <div class="row row3">3:00</div>
+          <div class="row row4">PM</div>
+        </div>
+      </div>
+
+    <div class="card-3">
+        <div class="flex-column">
+          <p class="small"><strong>Mon</strong></p>
+          <i class="fas fa-sun fa-2x mb-3" style="color: #ddd;"></i>
+          <p class="mb-0"><strong>21°C</strong></p>
+        </div>
+        <div class="flex-column">
+          <p class="small"><strong>Tue</strong></p>
+          <i class="fas fa-sun fa-2x mb-3" style="color: #ddd;"></i>
+          <p class="mb-0"><strong>20°C</strong></p>
+        </div>
+        <div class="flex-column">
+          <p class="small"><strong>Wed</strong></p>
+          <i class="fas fa-cloud fa-2x mb-3" style="color: #ddd;"></i>
+          <p class="mb-0"><strong>16°C</strong></p>
+        </div>
+        <div class="flex-column">
+          <p class="small"><strong>Thu</strong></p>
+          <i class="fas fa-cloud fa-2x mb-3" style="color: #ddd;"></i>
+          <p class="mb-0"><strong>17°C</strong></p>
+        </div>
+        <div class="flex-column">
+          <p class="small"><strong>Fri</strong></p>
+          <i class="fas fa-cloud-showers-heavy fa-2x mb-3" style="color: #ddd;"></i>
+          <p class="mb-0"><strong>18°C</strong></p>
+        </div>
+        <div class="flex-column">
+          <p class="small"><strong>Sat</strong></p>
+          <i class="fas fa-cloud-showers-heavy fa-2x mb-3" style="color: #ddd;"></i>
+          <p class="mb-0"><strong>18°C</strong></p>
+        </div>
+        <div class="flex-column">
+          <p class="small"><strong>Sun</strong></p>
+          <i class="fas fa-cloud-showers-heavy fa-2x mb-3" style="color: #ddd;"></i>
+          <p class="mb-0"><strong>18°C</strong></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
