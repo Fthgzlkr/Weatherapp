@@ -4,7 +4,35 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Weather App</title>
-  <link rel="stylesheet" href="/style.css"> 
+  <link rel="stylesheet" href="/style.css">
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      // Hava durumu verilerini al
+      const weather = "<%= weather ? weather.weather[0].main : '' %>";
+
+      // Arka plan resmini değiştirme fonksiyonu
+      function changeBackground(weather) {
+        const body = document.querySelector('body');
+        let backgroundImage = "url('background/main.png')"; // Default background
+
+        if (weather === 'Rain') {
+          backgroundImage = "url('background/rain.png')";
+        } else if (weather === 'Mist') {
+          backgroundImage = "url('background/mist.png')";
+        } else if (weather === 'Snow') {
+          backgroundImage = "url('background/snow.png')";
+        }
+
+        body.style.backgroundImage = backgroundImage;
+        body.style.backgroundSize = 'cover';
+        body.style.backgroundPosition = 'center';
+        body.style.backgroundRepeat = 'no-repeat';
+      }
+
+      
+      changeBackground(weather);
+    });
+  </script>
 </head>
 <body>
   <div class="container">
@@ -15,9 +43,14 @@
           <button type="submit"><img src="/images/search.png"></button>
         </form>
       </div>
+      <% if (error) { %>
+      <div class="error">
+        <p><%= error %></p>
+      </div>
+      <% } %>
       <% if (weather) { %>
       <div class="weather">
-        <img src="/images/rain.png" class="weather-icon">
+        <img src="images/<%= weather.weather[0].icon %>@2x.png" class="weather-icon" id="weather-icon">
         <h1 class="temp"><%= weather.main.temp %>°C</h1>
         <h2 class="city"><%= weather.name %></h2>
         <details>
@@ -36,8 +69,6 @@
       </div>
       <% } %>
     </div>
-
-    <!-- İkinci kart ve üçüncü kart bölümleri buraya eklenecek -->
 
     <div class="card-2">
         <div class="col">

@@ -17,16 +17,16 @@ app.get('/', async (req, res) => {
   const apiKey = 'c03294b7544fb42200ffa8ddab19a585';
 
   if (!city) {
-    return res.render('index', { weather: null, city: null });
+    return res.render('index', { weather: null, city: null, error: null });
   }
 
   try {
     const response = await axios.get(`http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric&lang=tr`);
     const weatherData = response.data;
-    res.render('index', { weather: weatherData, city: city });
+    res.render('index', { weather: weatherData, city: city, error: null });
   } catch (error) {
     console.error(error);
-    res.status(500).send('Server Error');
+    res.render('index', { weather: null, city: city, error: 'City not found' });
   }
 });
 

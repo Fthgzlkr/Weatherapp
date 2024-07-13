@@ -1,6 +1,4 @@
-body{
-    background-image: url("images/rainy.png")
-}
+
 .container {
     display: grid;
     grid-template-columns: 0fr 1fr 1fr; 
@@ -13,7 +11,13 @@ body{
     justify-items: center; 
   }
   
-  
+  body{
+    background-image: url("background/main.png");
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat; 
+}
+
   
 .card{
     width: 90%;
